@@ -1,22 +1,21 @@
 ---
-title : "Amazon S3"
-date : "`r Sys.Date()`"
-weight : 1
+title : "Tổng Quan"
+date :  "`r Sys.Date()`" 
+weight : 5
 chapter : false
 ---
+# Triển Khai Ứng Dụng Web Serverless
 
-# Bảo vệ website của bạn khỏi các cuộc tấn công DDoS với AWS WAF
+### Tổng Quan
+**Serverless** trên AWS cho phép bạn xây dựng và vận hành các ứng dụng mà không cần quản lý máy chủ. Dịch vụ như **AWS Lambda** tự động mở rộng quy mô và chỉ tính phí khi mã của bạn đang chạy, tối ưu hóa chi phí và tăng tính linh hoạt. Trong bài thực hành này, bạn sẽ học cách triển khai ứng dụng web serverless.
 
-### Tổng quan
-Trong bài thực hành này, bạn sẽ học cách bảo vệ website của mình khỏi lưu lượng truy cập lớn từ các nguồn không xác định (DDoS). Điều này giúp website của bạn hoạt động ổn định và không bị gián đoạn.
+![ConnectPrivate](/images/architect.png) 
 
-![ConnectPrivate](/images/arc-log-Copy.png)
-
-### Nội dung
-1. [Giới thiệu](1-Introduce/)
-2. [Chuẩn bị](2-Prerequiste/)
-3. [Bắt đầu với Amazon S3](3-configbucket/)
-4. [Tăng tốc website tĩnh với Amazon CloudFront](4-cloudfront/)
-5. [Cấu hình AWS WAF](5-waf/)
-6. [Kiểm tra chặn DDoS của AWS WAF](6-testddos/)
-7. [Dọn dẹp](7-cleanup/)
+### Nội Dung
+ 1. [Giới Thiệu](1-Introduce/)
+ 2. [Chuẩn Bị](2-Prerequiste/)
+ 3. [Tạo bảng DynamoDB](4-dynamodb/)
+ 4. [Tạo API Gateway](5-apigw/)
+ 5. [Tạo hàm Lambda](6-lambda/)
+ 6. [Kiểm tra kết quả với Postman](7-checkresult/)
+ 7. [Dọn dẹp](8-cleanup/)
