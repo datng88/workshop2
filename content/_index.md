@@ -1,21 +1,20 @@
 ---
-title : "Session Management"
+title : "Amazon S3"
 date :  "`r Sys.Date()`" 
 weight : 1 
 chapter : false
 ---
-# Work with Amazon System Manager - Session Manager
+# Protect your website from DDoS attacks with AWS WAF
 
 ### Overall
- In this lab, you'll learn the basics and practice of Amazon  System Manager - Session Manager
-. Perform creating public and private instance connections. 
+In this lab, you&rsquo;ll learn how to to protect your website from large amounts of traffic from unknown sources (DDoS). This helps your website run better and without interruption.
 
-![ConnectPrivate](/images/arc-log.png) 
+![ConnectPrivate](/images/arc-log-Copy.png) 
 
 ### Content
- 1. [Introduction ](1-introduce/)
- 2. [Preparation](2-prerequiste/)
- 3. [Connect to EC2 instance](3-accessibilitytoinstances/)
- 4. [Manage session logs](4-s3log/)
- 5. [Port Forwarding](5-Portfwd/)
- 6. [Clean up resources](6-cleanup/)
+ 1. [Introduction ](1-Introduce/)
+ 2. [Preparation](2-Prerequiste/)
+ 3. [Getting started with Amazon S3](3-configbucket/)
+ 4. [Accelerate static website with Amazon CloudFront](4-cloudfront/)
+ 5. [Config AWS WAF](5-waf/)
+ 6. [Testing AWS WAF DDoS blocking](6-testddos/)

@@ -1,22 +1,22 @@
 ---
-title : "Session Management"
-date :  "`r Sys.Date()`" 
-weight : 1 
+title : "Amazon S3"
+date : "`r Sys.Date()`"
+weight : 1
 chapter : false
 ---
-# Làm việc với Amazon System Manager - Session Manager
+
+# Bảo vệ website của bạn khỏi các cuộc tấn công DDoS với AWS WAF
 
 ### Tổng quan
+Trong bài thực hành này, bạn sẽ học cách bảo vệ website của mình khỏi lưu lượng truy cập lớn từ các nguồn không xác định (DDoS). Điều này giúp website của bạn hoạt động ổn định và không bị gián đoạn.
 
- Trong bài lab này, bạn sẽ tìm hiểu các khái niệm cơ bản và thực hành về Amazon System Manager - Session Management. Thực hành tạo kết nối đến máy chủ public và máy chủ private trong VPC.
-
-![ConnectPrivate](/images/arc-log.png) 
+![ConnectPrivate](/images/arc-log-Copy.png)
 
 ### Nội dung
-
- 1. [Giới thiệu](1-introduce/)
- 2. [Các bước chuẩn bị](2-Prerequiste/)
- 3. [Tạo kết nối đến máy chủ EC2](3-Accessibilitytoinstance/)
- 4. [Quản lý session logs](4-s3log/)
- 5. [Port Forwarding](5-Portfwd/)
- 6. [Dọn dẹp tài nguyên](6-cleanup/)
+1. [Giới thiệu](1-Introduce/)
+2. [Chuẩn bị](2-Prerequiste/)
+3. [Bắt đầu với Amazon S3](3-configbucket/)
+4. [Tăng tốc website tĩnh với Amazon CloudFront](4-cloudfront/)
+5. [Cấu hình AWS WAF](5-waf/)
+6. [Kiểm tra chặn DDoS của AWS WAF](6-testddos/)
+7. [Dọn dẹp](7-cleanup/)

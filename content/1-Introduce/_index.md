@@ -5,17 +5,19 @@ weight : 1
 chapter : false
 pre : " <b> 1. </b> "
 ---
-**Session Manager** is a function within the AWS System Manager service, SSM provides verifiable and secure version management without opening incoming ports, without Bastion Host or SSH key management. Session Manager also makes it easy to comply with corporate policies that require controlled access to instances, strict security practices, and fully auditable logs with instance access details, while still providing end-users with one-click cross-platform access to your managed instances.
+### Amazon S3
+**Amazon Simple Storage Service (Amazon S3)** is an object storage service offering industry-leading scalability, data availability, security, and performance. It is designed for large-capacity, low-cost storage provision across multiple geographical regions. Amazon S3 provides developers and IT teams with secure, durable and highly scalable object storage.
 
-By using Session Manager, you get the following advantages that traditional methods do not have:
+### Amazon WAF
+**Amazon WAF** is a web application firewall that lets you monitor and manage web requests that are forwarded to protected AWS resources. By using AWS WAF, you can create rules that block common web exploits (Layer 7) like HTTP floods, SQL injection and cross site scripting (XSS).
 
-- No need to open port 22 for SSH protocol, so it is more secure.
-- Can be configured so that the connection does not need to go outside the internet, so it is more secure.
-- No need to manage the server's private key to connect to SSH.
-- Centralized management of users using AWS IAM.
-- Access to the server easily and simply with one click.
-- Faster access time than traditional methods like SSH
-- Support many different operating systems such as Linux, Windows, MacOS
-- Log the connection sessions and commands executed while connecting to the server.
+### Amazon CloudFront
+**Amazon CloudFront** is a content delivery network (CDN) service provided by Amazon Web Services (AWS). It speeds up the distribution of your web content by caching copies at edge locations around the world. This reduces latency and improves load times for users, making it ideal for delivering static and dynamic content, such as websites, videos, and APIs.
+
+By combining services AWS WAF and CloudFront, you can get the following advantages: 
+- **Edge Location Protection:** CloudFront distributes your content across multiple edge locations worldwide, which helps absorb and mitigate large-scale DDoS attacks by dispersing traffic.
+- **Layered Security:** AWS WAF provides protection at the application layer (Layer 7), allowing you to create custom rules to block malicious traffic
+- **Cost Efficiency:** Using CloudFront with AWS WAF can reduce the cost impact of DDoS attacks by minimizing the amount of attack traffic that reaches your origin servers
+- **Customizable Rules:** AWS WAF allows you to set rate-based rules to automatically block IP addresses that exceed a specified request threshold, helping to mitigate application layer DDoS attacks.
   
-With the above advantages, you can use Session Manager instead of using Bastion host technique to save us time and money when managing Bastion server. 
+Leveraging these advantages, you can enhance the security of your web applications and streamline management processes.
