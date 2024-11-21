@@ -9,7 +9,7 @@ pre : " <b> 4.3 </b> "
 ![api-1](/images/5-apigw/5.3-deployapi/api-1.png)
 2. In the **Resources** details, choose **Deploy API**
     - **Stage**: New stage
-    - **Stage name**: `prod           `
+    - **Stage name**: `prod                               `
     - Choose **Deploy**
 ![api-2](/images/5-apigw/5.3-deployapi/api-2.png)
 
