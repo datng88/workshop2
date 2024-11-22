@@ -22,49 +22,73 @@ import json
 import boto3
 import logging
 
-# Khởi tạo logger và đặt mức độ log là INFO
+# Khởi tạo một logger và đặt mức log là INFO
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
-# Kết nối với dịch vụ DynamoDB
+# Kết nối tới dịch vụ DynamoDB
 dynamodb = boto3.resource('dynamodb')
 
-# Hàm chính cho AWS Lambda
+# Hàm xử lý chính cho AWS Lambda
 def lambda_handler(event, context):
-    data = {'Items': 'Bad Request'}
-    statusCode = 200
+    # Dữ liệu phản hồi mặc định
+    data = {
+        'Items': 'Yêu cầu không hợp lệ'
+    }
+    statusCode = 200  # Mã trạng thái HTTP mặc định là 200 (OK)
 
+    # Trích xuất đường dẫn và phương thức HTTP từ đối tượng event
     path = event['path']
     httpMethod = event['httpMethod']
 
+    # Kết nối tới bảng DynamoDB có tên 'studentData'
     table = dynamodb.Table('studentData')
 
+    # Xử lý các yêu cầu GET tới đường dẫn '/students'
     if httpMethod == 'GET' and path == '/students':
+        # Sử dụng phương thức scan() để lấy tất cả các mục từ bảng
         data = table.scan()
+    
+    # Xử lý các yêu cầu POST tới đường dẫn '/students'
     elif httpMethod == 'POST' and path == '/students':
+        # Kiểm tra nếu thân yêu cầu không rỗng
         if event['body'] is not None:
+            # Phân tích chuỗi JSON trong thân yêu cầu thành một dictionary trong Python
             body = json.loads(event['body'])
+            
+            # Chèn một mục mới vào bảng 'studentData'
             table.put_item(
                 Item={
-                    'studentid': body['studentid'],
-                    'name': body['name'],
-                    'age': body['age'],
-                    'class': body['class']
+                    'studentid': body['studentid'],    # ID sinh viên duy nhất
+                    'name': body['name'],       # Tên sinh viên
+                    'age': body['age'],         # Tuổi sinh viên
+                    'class': body['class']      # Lớp của sinh viên
                 }
             )
-            data = {'Items': 'Student Created Successfully'}
+            # Cập nhật dữ liệu phản hồi để chỉ ra thành công
+            data = {
+                'Items': 'Student Created Successfully'
+            }
         else:
-            data = {'Items': 'Invalid Payload'}
-            statusCode = 400
+            # Xử lý trường hợp thân yêu cầu bị thiếu hoặc không hợp lệ
+            data = {
+                'Items': 'Invalid Payload'
+            }
+            statusCode = 400  # Đặt mã trạng thái HTTP là 400 (Yêu cầu không hợp lệ)
     else:
-        statusCode = 400
+        # Xử lý bất kỳ yêu cầu không được hỗ trợ nào
+        statusCode = 400  # Đặt mã trạng thái HTTP là 400 (Yêu cầu không hợp lệ)
 
+    # Xây dựng phản hồi HTTP để trả về cho client
     response = {
-        'statusCode': statusCode,
-        'body': json.dumps(data['Items']),
-        'headers': {'Content-Type': 'application/json'},
+        'statusCode': statusCode,                 # Mã trạng thái HTTP
+        'body': json.dumps(data['Items']),        # Thân phản hồi dưới dạng chuỗi JSON
+        'headers': {
+            'Content-Type': 'application/json',   # Chỉ định rằng loại nội dung của phản hồi là JSON
+        },
     }
 
+    # Trả về phản hồi đã xây dựng
     return response
 ```
 4. Chọn **Deploy**
